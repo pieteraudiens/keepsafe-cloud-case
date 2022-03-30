@@ -2,7 +2,7 @@ name: Showcase
 on:
   push:
     branches:
-      - main
+      - master
 env:
   SHOWCASE_ENV: lol
 jobs:
@@ -10,7 +10,6 @@ jobs:
     name: TODO
     runs-on: ubuntu-latest
     steps:
-      - id: command
-        run: echo ${{ env.SHOWCASE_ENV }}
+      - uses: actions/checkout@v3
       - id: show pipeline environemnt
         run: ls
