@@ -16,5 +16,5 @@ jobs:
         run: npm install
       - id: run_tests
         run: npm run test
-      - id: run_tests
+      - id: run_lint
         run: npm run lint
