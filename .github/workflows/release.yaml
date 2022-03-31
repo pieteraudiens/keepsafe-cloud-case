@@ -18,3 +18,13 @@ jobs:
         run: npm run test
       - id: run_lint
         run: npm run lint
+      - id: create_docker_file
+        run: docker run -p 8080:8080 --name "node_runner" node-container:v0.0.1
+      - id: tag_docker_file
+        run: docker tag node-container:v0.0.1 pietera/noderunner:latest
+      - id: tag_docker_file
+        run: docker push pietera/noderunner:latest
+      - id: login_to_docker_hub
+        run: docker login -u pietera -p ${{DOCKER_HUB_PASS}}
+      - id: push_docker_file
+        run: docker push pietera/noderunner:latest
